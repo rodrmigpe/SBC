@@ -5,39 +5,61 @@
  */
 package frontend;
 
-import javax.swing.JOptionPane;
-import javax.swing.UIManager;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
- * @author ssoar
+ * @author Rodrigo
  */
+
 public class Resultado extends javax.swing.JFrame {
+    
+    private String mensagem;
 
     /**
-     * Creates new form resultado
+     * Creates new form Teste
+     * @param mensagem
+     * @throws java.net.MalformedURLException
      */
-    private String mensagem;
-    
-    public Resultado(String mensagem) {
+    public Resultado(String mensagem) throws MalformedURLException, IOException {
         initComponents();
-        this.mensagem = mensagem;
-        txtResultado.setText(mensagem);
-    }
-    
-     private void terminar() {        
-       UIManager.put("OptionPane.noButtonText", "Não");  
-       UIManager.put("OptionPane.yesButtonText", "Sim");
         
-        if (JOptionPane.showConfirmDialog(null, 
-               "Deseja realmente terminar o programa?", 
-               "Terminar",
-               
-               JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                dispose();
-                System.exit(0);
-            
-       }
+        this.mensagem = mensagem;
+        
+        String[] parts = mensagem.split("\n");
+        String prato = parts[0]; 
+        String regiao = parts[2];
+        String regimeAlimentar = parts[4];
+        String tipoComida = parts[6];
+        String preco = parts[8];
+        String ocasiao = parts[10];
+        String foto = parts[12];
+        String descricao = parts[14];
+        
+        
+        URL url = new URL(foto);
+        BufferedImage image = ImageIO.read(url);
+        System.out.println("Load image into frame...");
+        lbFoto.setIcon(new ImageIcon(image.getScaledInstance(200, 200, BufferedImage.TYPE_INT_ARGB)));
+        
+        lbPrato.setText(prato);
+        lbRegiao.setText(regiao);
+        lbRegime.setText(regimeAlimentar);
+        lbTipo.setText(tipoComida);
+        lbPreco.setText(preco);
+        lbOcasiao.setText(ocasiao);
+        
+         //permite fazer quebra de linha
+        txtDescricao.setLineWrap( true );
+        txtDescricao.setText(descricao);
+       
+         
+                
     }
 
     /**
@@ -49,55 +71,76 @@ public class Resultado extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lbImagem = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtResultado = new javax.swing.JTextArea();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        lbPrato = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btSair = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        lbRegiao = new javax.swing.JLabel();
+        lbRegime = new javax.swing.JLabel();
+        lbTipo = new javax.swing.JLabel();
+        lbPreco = new javax.swing.JLabel();
+        lbOcasiao = new javax.swing.JLabel();
+        lbFoto = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtDescricao = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(616, 409));
+        setMinimumSize(new java.awt.Dimension(552, 419));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(552, 419));
         getContentPane().setLayout(null);
 
-        lbImagem.setText("foto");
-        getContentPane().add(lbImagem);
-        lbImagem.setBounds(380, 150, 200, 210);
+        jPanel1.setLayout(null);
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(135, 92, 0, 0);
 
-        txtResultado.setColumns(20);
-        txtResultado.setRows(5);
-        jScrollPane1.setViewportView(txtResultado);
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setMinimumSize(new java.awt.Dimension(626, 500));
+        jPanel2.setName(""); // NOI18N
+        jPanel2.setPreferredSize(new java.awt.Dimension(626, 500));
+        jPanel2.setLayout(null);
 
-        getContentPane().add(jScrollPane1);
-        jScrollPane1.setBounds(80, 150, 230, 210);
+        lbPrato.setText("prato");
+        jPanel2.add(lbPrato);
+        lbPrato.setBounds(30, 40, 170, 25);
+        jPanel2.add(jLabel2);
+        jLabel2.setBounds(105, 106, 0, 0);
 
-        jLabel2.setFont(new java.awt.Font("Arial Nova Light", 1, 14)); // NOI18N
-        jLabel2.setText("Espero que goste do que sugerimos!");
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(200, 120, 270, 19);
+        lbRegiao.setText("regiao");
+        jPanel2.add(lbRegiao);
+        lbRegiao.setBounds(30, 80, 160, 30);
 
-        btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/sair.png"))); // NOI18N
-        btSair.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btSairMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btSair);
-        btSair.setBounds(20, 190, 40, 32);
+        lbRegime.setText("regimeAlimentar");
+        jPanel2.add(lbRegime);
+        lbRegime.setBounds(30, 130, 180, 28);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(-10, 0, 626, 417);
+        lbTipo.setText("tipoComida");
+        jPanel2.add(lbTipo);
+        lbTipo.setBounds(30, 180, 130, 24);
+
+        lbPreco.setText("preco");
+        jPanel2.add(lbPreco);
+        lbPreco.setBounds(30, 220, 90, 30);
+
+        lbOcasiao.setText("ocasiao");
+        jPanel2.add(lbOcasiao);
+        lbOcasiao.setBounds(30, 270, 130, 30);
+        jPanel2.add(lbFoto);
+        lbFoto.setBounds(250, 40, 250, 230);
+
+        txtDescricao.setEditable(false);
+        txtDescricao.setColumns(20);
+        txtDescricao.setRows(5);
+        jScrollPane1.setViewportView(txtDescricao);
+
+        jPanel2.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 310, 520, 96);
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 560, 420);
 
         pack();
-        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
-        // TODO add your handling code here:
-        terminar();
-    }//GEN-LAST:event_btSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -130,17 +173,23 @@ public class Resultado extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-               // new Resultado().setVisible(true);
+                //new Teste().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel btSair;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lbImagem;
-    private javax.swing.JTextArea txtResultado;
+    private javax.swing.JLabel lbFoto;
+    private javax.swing.JLabel lbOcasiao;
+    private javax.swing.JLabel lbPrato;
+    private javax.swing.JLabel lbPreco;
+    private javax.swing.JLabel lbRegiao;
+    private javax.swing.JLabel lbRegime;
+    private javax.swing.JLabel lbTipo;
+    private javax.swing.JTextArea txtDescricao;
     // End of variables declaration//GEN-END:variables
 }

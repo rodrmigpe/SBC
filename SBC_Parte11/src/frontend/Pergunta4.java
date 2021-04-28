@@ -5,6 +5,9 @@
  */
 package frontend;
 
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import org.jpl7.Query;
@@ -58,7 +61,7 @@ public class Pergunta4 extends javax.swing.JFrame {
         rbDiasEspeciais = new javax.swing.JRadioButton();
         rbAlgumasVezes = new javax.swing.JRadioButton();
         rbDieta = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jLabel1.setText("jLabel1");
 
@@ -90,16 +93,19 @@ public class Pergunta4 extends javax.swing.JFrame {
         getContentPane().add(btSair);
         btSair.setBounds(20, 190, 40, 32);
 
+        buttonGroup1.add(rbDiasEspeciais);
         rbDiasEspeciais.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         rbDiasEspeciais.setText("Dias Especiais");
         getContentPane().add(rbDiasEspeciais);
         rbDiasEspeciais.setBounds(270, 180, 120, 23);
 
+        buttonGroup1.add(rbAlgumasVezes);
         rbAlgumasVezes.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         rbAlgumasVezes.setText("Algumas Vezes");
         getContentPane().add(rbAlgumasVezes);
         rbAlgumasVezes.setBounds(270, 220, 120, 23);
 
+        buttonGroup1.add(rbDieta);
         rbDieta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         rbDieta.setText("Dieta");
         rbDieta.addActionListener(new java.awt.event.ActionListener() {
@@ -110,9 +116,9 @@ public class Pergunta4 extends javax.swing.JFrame {
         getContentPane().add(rbDieta);
         rbDieta.setBounds(270, 260, 100, 23);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
-        getContentPane().add(jLabel2);
-        jLabel2.setBounds(0, -10, 630, 420);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
+        getContentPane().add(jLabel4);
+        jLabel4.setBounds(-10, -10, 640, 440);
 
         pack();
         setLocationRelativeTo(null);
@@ -127,7 +133,7 @@ public class Pergunta4 extends javax.swing.JFrame {
         System.out.println("consult " + (query.hasSolution() ? "ok" : "falhou"));
         
         if (rbDiasEspeciais.isSelected() || rbAlgumasVezes.isSelected() || rbDieta.isSelected()){
-             if (rbDiasEspeciais.isSelected()){
+            if (rbDiasEspeciais.isSelected()){
                  String ocasiao = "'diasEspeciais'";
                  mensagem += "assert(fact("+ ocasiao +")),resposta(P).";                 
                  
@@ -140,71 +146,95 @@ public class Pergunta4 extends javax.swing.JFrame {
                 refeicao = refeicao.replace("â‚¬", " €");
                 refeicao = refeicao.replace("Ã§Ã£", "çã");
                 refeicao = refeicao.replace("[[['  ", "");  
+                refeicao = refeicao.replace("[[['", "");
                 refeicao = refeicao.replace("']], _1]", ""); 
 
                 if(refeicao.length() != 0) {
-                    dispose();
-                    Teste resultado = new Teste(refeicao);
-                    resultado.setLocationRelativeTo(null);
-                    resultado.setVisible(true);
-                } 
+                     try {
+                         dispose();
+                         Resultado resultado = new Resultado(refeicao);
+                         resultado.setLocationRelativeTo(null);
+                         resultado.setVisible(true);
+                     } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Ocorreu um erro","Erro",JOptionPane.ERROR_MESSAGE);
+                     }
+                
+                } else {                  
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado.","Informação",JOptionPane.INFORMATION_MESSAGE);
+                }
         
                 System.out.println(refeicao); 
                 
              }
              
-             if (rbAlgumasVezes.isSelected()){
-                    String ocasiao = "'algumasVezes'";
-                    this.mensagem += "assert(fact("+ ocasiao +")),resposta(P).";                 
+            if (rbAlgumasVezes.isSelected()){
+                String ocasiao = "'algumasVezes'";
+                this.mensagem += "assert(fact("+ ocasiao +")),resposta(P).";                 
 
-                    System.out.println(mensagem);
+                System.out.println(mensagem);
 
-                    Query result = new Query(mensagem);   
+                Query result = new Query(mensagem);   
 
-                    String refeicao =  result.oneSolution().get("P").toString();
+                String refeicao =  result.oneSolution().get("P").toString();
 
-                    refeicao = refeicao.replace("â‚¬", " €");
-                    refeicao = refeicao.replace("Ã§Ã£", "çã");
-                    refeicao = refeicao.replace("[[['  ", "");  
-                    refeicao = refeicao.replace("']], _1]", ""); 
+                refeicao = refeicao.replace("â‚¬", " €");
+                refeicao = refeicao.replace("Ã§Ã£", "çã");
+                refeicao = refeicao.replace("[[['  ", "");  
+                refeicao = refeicao.replace("[[['", "");
+                refeicao = refeicao.replace("']], _1]", ""); 
 
-                    if(refeicao.length() != 0) {
+                if(refeicao.length() != 0) {
+                    try {
                         dispose();
                         Resultado resultado = new Resultado(refeicao);
-                        resultado.setLocationRelativeTo(null);
-                        resultado.setVisible(true);   
-                    }                
-        
+                        resultado.setLocationRelativeTo(null);   
+                        resultado.setVisible(true);
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Ocorreu um erro","Erro",JOptionPane.ERROR_MESSAGE);
+                    }
+
+                } else {                  
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado.","Informação",JOptionPane.INFORMATION_MESSAGE);
+                }
+
                 System.out.println(refeicao);  
                 
              }
-               if (rbDieta.isSelected()){
-                    String ocasiao = "'dieta'";
-                    mensagem += "assert(fact("+ ocasiao +")),resposta(P).";                 
+            if (rbDieta.isSelected()){
+                String ocasiao = "'dieta'";
+                mensagem += "assert(fact("+ ocasiao +")),resposta(P).";                 
 
-                    System.out.println(mensagem);
+                System.out.println(mensagem);
 
-                    Query result = new Query(mensagem);   
+                Query result = new Query(mensagem);   
 
-                    String refeicao =  result.oneSolution().get("P").toString();
+                String refeicao =  result.oneSolution().get("P").toString();
 
-                    refeicao = refeicao.replace("â‚¬", " €");
-                    refeicao = refeicao.replace("Ã§Ã£", "çã");
-                    refeicao = refeicao.replace("[[['  ", "");  
-                    refeicao = refeicao.replace("']], _1]", ""); 
+                refeicao = refeicao.replace("â‚¬", " €");
+                refeicao = refeicao.replace("Ã§Ã£", "çã");
+                refeicao = refeicao.replace("[[['  ", ""); 
+                refeicao = refeicao.replace("[[['", "");
+                refeicao = refeicao.replace("']], _1]", ""); 
 
                     if(refeicao.length() != 0) {
+                    try {
                         dispose();
                         Resultado resultado = new Resultado(refeicao);
-                        resultado.setLocationRelativeTo(null);
-                        resultado.setVisible(true);                   
+                        resultado.setLocationRelativeTo(null);                   
+                        resultado.setVisible(true);
+                    } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Ocorreu um erro","Erro",JOptionPane.ERROR_MESSAGE);
+                    }
+                     
+                    } else {                  
+                        JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado.","Informação",JOptionPane.INFORMATION_MESSAGE);
                     }
                     
-                    System.out.println(refeicao); 
+                    System.out.println(refeicao);  
                     
                 }
         } else { 
-                    JOptionPane.showMessageDialog(null,"Não foram encontrados quaisquer resultados","Informação",JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(null,"Selecione pelo menos uma das alternativas","Erro",JOptionPane.ERROR_MESSAGE);
                }
        
     }//GEN-LAST:event_btProximoMouseClicked
@@ -259,8 +289,8 @@ public class Pergunta4 extends javax.swing.JFrame {
     private javax.swing.JLabel btSair;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JRadioButton rbAlgumasVezes;
     private javax.swing.JRadioButton rbDiasEspeciais;
     private javax.swing.JRadioButton rbDieta;

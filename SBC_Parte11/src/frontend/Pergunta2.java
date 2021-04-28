@@ -52,11 +52,11 @@ public class Pergunta2 extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btSair = new javax.swing.JLabel();
         btProximo = new javax.swing.JLabel();
-        cbFastFood = new javax.swing.JCheckBox();
-        cbVegetariana = new javax.swing.JCheckBox();
-        cbComidaTradicional = new javax.swing.JCheckBox();
-        cbComidaOriental = new javax.swing.JCheckBox();
-        jLabel1 = new javax.swing.JLabel();
+        rbFastFood = new javax.swing.JRadioButton();
+        rbVegetariana = new javax.swing.JRadioButton();
+        rbComidaTradicional = new javax.swing.JRadioButton();
+        rbComidaOriental = new javax.swing.JRadioButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(616, 409));
@@ -86,67 +86,49 @@ public class Pergunta2 extends javax.swing.JFrame {
         getContentPane().add(btProximo);
         btProximo.setBounds(550, 190, 40, 32);
 
-        cbFastFood.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cbFastFood.setText("Fast-Food");
-        cbFastFood.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(rbFastFood);
+        rbFastFood.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbFastFood.setText("Fast-Food");
+        rbFastFood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbFastFoodActionPerformed(evt);
+                rbFastFoodActionPerformed(evt);
             }
         });
-        getContentPane().add(cbFastFood);
-        cbFastFood.setBounds(270, 180, 81, 23);
+        getContentPane().add(rbFastFood);
+        rbFastFood.setBounds(270, 180, 120, 23);
 
-        cbVegetariana.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cbVegetariana.setText("Vegetariana");
-        getContentPane().add(cbVegetariana);
-        cbVegetariana.setBounds(270, 210, 93, 23);
+        buttonGroup1.add(rbVegetariana);
+        rbVegetariana.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbVegetariana.setText("Vegetariana");
+        getContentPane().add(rbVegetariana);
+        rbVegetariana.setBounds(270, 210, 120, 23);
 
-        cbComidaTradicional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cbComidaTradicional.setText("Comida Tradicional");
-        cbComidaTradicional.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbComidaTradicionalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbComidaTradicional);
-        cbComidaTradicional.setBounds(270, 240, 133, 23);
+        buttonGroup1.add(rbComidaTradicional);
+        rbComidaTradicional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbComidaTradicional.setText("Comida Tradicional");
+        getContentPane().add(rbComidaTradicional);
+        rbComidaTradicional.setBounds(270, 240, 140, 23);
 
-        cbComidaOriental.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        cbComidaOriental.setText("Comida Oriental");
-        cbComidaOriental.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cbComidaOrientalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(cbComidaOriental);
-        cbComidaOriental.setBounds(270, 270, 115, 23);
+        buttonGroup1.add(rbComidaOriental);
+        rbComidaOriental.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbComidaOriental.setText("Comida Oriental");
+        getContentPane().add(rbComidaOriental);
+        rbComidaOriental.setBounds(270, 270, 130, 23);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 630, 420);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(-10, -10, 650, 430);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void cbComidaTradicionalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbComidaTradicionalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbComidaTradicionalActionPerformed
-
-    private void cbComidaOrientalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbComidaOrientalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbComidaOrientalActionPerformed
-
-    private void cbFastFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbFastFoodActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cbFastFoodActionPerformed
-
     private void btProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btProximoMouseClicked
         // TODO add your handling code here:
    
         
-        if (cbFastFood.isSelected() || cbVegetariana.isSelected() || cbComidaTradicional.isSelected() || cbComidaOriental.isSelected()){
-             if (cbFastFood.isSelected()){
+        if (rbFastFood.isSelected() || rbVegetariana.isSelected() || rbComidaTradicional.isSelected() || rbComidaOriental.isSelected()){
+             if (rbFastFood.isSelected()){
                  String tipo = "'fastFood'";
                  mensagem += "assert(fact("+tipo+")),";
                  
@@ -159,7 +141,7 @@ public class Pergunta2 extends javax.swing.JFrame {
                  
               
              }
-              if (cbVegetariana.isSelected()){
+              if (rbVegetariana.isSelected()){
                  String tipo = "'vegetariana'";
                  mensagem += "assert(fact("+tipo+")),";
                  
@@ -171,7 +153,7 @@ public class Pergunta2 extends javax.swing.JFrame {
                  pergunta3.setVisible(true);
                  
              }
-               if (cbComidaTradicional.isSelected()){
+               if (rbComidaTradicional.isSelected()){
                  String tipo = "'comidaTradicional'";
                  mensagem += "assert(fact("+tipo+")),";
                  
@@ -183,7 +165,7 @@ public class Pergunta2 extends javax.swing.JFrame {
                  pergunta3.setVisible(true);
                  
              }
-               if (cbComidaOriental.isSelected()){
+               if (rbComidaOriental.isSelected()){
                  String tipo = "'comidaOriental'";
                  mensagem += "assert(fact("+tipo+")),";
                  
@@ -206,6 +188,10 @@ public class Pergunta2 extends javax.swing.JFrame {
         // TODO add your handling code here:
         terminar();
     }//GEN-LAST:event_btSairMouseClicked
+
+    private void rbFastFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFastFoodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbFastFoodActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,11 +233,11 @@ public class Pergunta2 extends javax.swing.JFrame {
     private javax.swing.JLabel btProximo;
     private javax.swing.JLabel btSair;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JCheckBox cbComidaOriental;
-    private javax.swing.JCheckBox cbComidaTradicional;
-    private javax.swing.JCheckBox cbFastFood;
-    private javax.swing.JCheckBox cbVegetariana;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JRadioButton rbComidaOriental;
+    private javax.swing.JRadioButton rbComidaTradicional;
+    private javax.swing.JRadioButton rbFastFood;
+    private javax.swing.JRadioButton rbVegetariana;
     // End of variables declaration//GEN-END:variables
 }

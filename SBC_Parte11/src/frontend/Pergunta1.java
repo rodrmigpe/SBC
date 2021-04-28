@@ -45,13 +45,14 @@ public class Pergunta1 extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
         rbNormal = new javax.swing.JRadioButton();
         rbVegetariano = new javax.swing.JRadioButton();
         rbVegan = new javax.swing.JRadioButton();
         btProximo = new javax.swing.JLabel();
         btSair = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(616, 409));
@@ -63,6 +64,7 @@ public class Pergunta1 extends javax.swing.JFrame {
         getContentPane().add(jLabel2);
         jLabel2.setBounds(220, 130, 250, 20);
 
+        buttonGroup1.add(rbNormal);
         rbNormal.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         rbNormal.setText("Normal");
         rbNormal.addActionListener(new java.awt.event.ActionListener() {
@@ -73,11 +75,13 @@ public class Pergunta1 extends javax.swing.JFrame {
         getContentPane().add(rbNormal);
         rbNormal.setBounds(280, 170, 90, 25);
 
+        buttonGroup1.add(rbVegetariano);
         rbVegetariano.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         rbVegetariano.setText("Vegetariano");
         getContentPane().add(rbVegetariano);
         rbVegetariano.setBounds(280, 210, 100, 25);
 
+        buttonGroup1.add(rbVegan);
         rbVegan.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         rbVegan.setText("Vegan");
         rbVegan.addActionListener(new java.awt.event.ActionListener() {
@@ -106,9 +110,9 @@ public class Pergunta1 extends javax.swing.JFrame {
         getContentPane().add(btSair);
         btSair.setBounds(20, 190, 40, 32);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, -10, 640, 430);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
+        getContentPane().add(jLabel3);
+        jLabel3.setBounds(0, -10, 640, 440);
 
         pack();
         setLocationRelativeTo(null);
@@ -210,8 +214,9 @@ public class Pergunta1 extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel btProximo;
     private javax.swing.JLabel btSair;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JRadioButton rbNormal;
     private javax.swing.JRadioButton rbVegan;
     private javax.swing.JRadioButton rbVegetariano;
