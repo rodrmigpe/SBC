@@ -49,6 +49,8 @@ public class PaginaInicial extends javax.swing.JFrame {
         System.out.println(query.hasSolution() ? "ok" : "erro");
                
         Random rand = new Random();
+        
+        ArrayList<String> restricaoArray = new ArrayList<>();
               
         ArrayList<String> regimeArray = new ArrayList<>();
 
@@ -58,7 +60,10 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         ArrayList<String> ocasiaoArray = new ArrayList<>();
 
-
+        
+        restricaoArray.add("'sim'");
+        restricaoArray.add("'nao'");
+        
         regimeArray.add("'normal'");
         regimeArray.add("'vegan'");
         regimeArray.add("'vegetariano'");
@@ -75,6 +80,8 @@ public class PaginaInicial extends javax.swing.JFrame {
         ocasiaoArray.add("'diasEspeciais'");
         ocasiaoArray.add("'dieta'");
         ocasiaoArray.add("'algumasVezes'");
+        
+        int restricaoIndex = rand.nextInt(restricaoArray.size()); 
 
         int regimeIndex = rand.nextInt(regimeArray.size()); 
 
@@ -83,6 +90,8 @@ public class PaginaInicial extends javax.swing.JFrame {
         int ocasiaoIndex = rand.nextInt(ocasiaoArray.size()); 
 
         int precoIndex = rand.nextInt(precoArray.size()); 
+        
+        String restricao = restricaoArray.get(restricaoIndex);
 
         String regime = regimeArray.get(regimeIndex);
 
@@ -93,7 +102,7 @@ public class PaginaInicial extends javax.swing.JFrame {
         String preco = precoArray.get(precoIndex);
 
 
-        String asserts = "assert(fact("+ regime + ")),assert(fact(" + tipo + ")),assert(fact(" + preco + ")),assert(fact(" + ocasiao + ")), resposta(P).";
+        String asserts = "assert(fact("+ restricao + ")),assert(fact("+ regime + ")),assert(fact(" + tipo + ")),assert(fact(" + preco + ")),assert(fact(" + ocasiao + ")), resposta(P).";
 
         System.out.println(asserts);
     

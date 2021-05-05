@@ -10,12 +10,12 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author ssoar
+ * @author Rodrigo
  */
 public class Pergunta1 extends javax.swing.JFrame {
 
     /**
-     * Creates new form pergunta_1
+     * Creates new form Pergunta1
      */
     public Pergunta1() {
         initComponents();
@@ -47,50 +47,33 @@ public class Pergunta1 extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
-        rbNormal = new javax.swing.JRadioButton();
-        rbVegetariano = new javax.swing.JRadioButton();
-        rbVegan = new javax.swing.JRadioButton();
+        rbSim = new javax.swing.JRadioButton();
+        rbNao = new javax.swing.JRadioButton();
         btProximo = new javax.swing.JLabel();
         btSair = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(616, 409));
+        setMinimumSize(new java.awt.Dimension(616, 408));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Arial Nova Light", 1, 14)); // NOI18N
-        jLabel2.setText("Qual o seu estilo alimentar ?");
+        jLabel2.setText("Tem alguma restrição alimentar ? ");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(220, 130, 250, 20);
+        jLabel2.setBounds(200, 130, 300, 30);
 
-        buttonGroup1.add(rbNormal);
-        rbNormal.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
-        rbNormal.setText("Normal");
-        rbNormal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbNormalActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rbNormal);
-        rbNormal.setBounds(280, 170, 90, 25);
+        buttonGroup1.add(rbSim);
+        rbSim.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        rbSim.setText("Sim");
+        getContentPane().add(rbSim);
+        rbSim.setBounds(270, 170, 90, 23);
 
-        buttonGroup1.add(rbVegetariano);
-        rbVegetariano.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
-        rbVegetariano.setText("Vegetariano");
-        getContentPane().add(rbVegetariano);
-        rbVegetariano.setBounds(280, 210, 100, 25);
-
-        buttonGroup1.add(rbVegan);
-        rbVegan.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
-        rbVegan.setText("Vegan");
-        rbVegan.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbVeganActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rbVegan);
-        rbVegan.setBounds(280, 250, 70, 25);
+        buttonGroup1.add(rbNao);
+        rbNao.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        rbNao.setText("Não");
+        getContentPane().add(rbNao);
+        rbNao.setBounds(270, 210, 90, 23);
 
         btProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/right-arrow (2).png"))); // NOI18N
         btProximo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -99,7 +82,7 @@ public class Pergunta1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btProximo);
-        btProximo.setBounds(540, 190, 40, 32);
+        btProximo.setBounds(550, 180, 50, 40);
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/sair.png"))); // NOI18N
         btSair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -108,72 +91,52 @@ public class Pergunta1 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btSair);
-        btSair.setBounds(20, 190, 40, 32);
+        btSair.setBounds(10, 180, 50, 40);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
-        getContentPane().add(jLabel3);
-        jLabel3.setBounds(0, -10, 640, 440);
+        jLabel1.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
+        getContentPane().add(jLabel1);
+        jLabel1.setBounds(0, -20, 650, 440);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rbNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNormalActionPerformed
+    private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_rbNormalActionPerformed
+        terminar();
+    }//GEN-LAST:event_btSairMouseClicked
 
     private void btProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btProximoMouseClicked
         // TODO add your handling code here:
         String mensagem = "";
      
-     if (rbNormal.isSelected()) {
-         String regime = "'normal'";
-         mensagem = "assert(fact("+regime+")),";
+     if (rbSim.isSelected()) {
+         String restricao = "'sim'";
+         mensagem += "assert(fact("+restricao+")),";
          
         System.out.println(mensagem);
         
         dispose();
-        Pergunta2 pergunta2 = new Pergunta2(mensagem);
-        pergunta2.setLocationRelativeTo(null);
-        pergunta2.setVisible(true);
+        PerguntaRestricao perguntaRestricao = new PerguntaRestricao(mensagem);
+        perguntaRestricao.setLocationRelativeTo(null);
+        perguntaRestricao.setVisible(true);
     
-     } else if (rbVegetariano.isSelected()) {
-        String regime = "'vegetariano'";
-        mensagem = "assert(fact("+regime+")),";
+     } else if (rbNao.isSelected()) {
+        String restricao = "'nao'";
+        mensagem += "assert(fact("+restricao+")),";
          
         System.out.println(mensagem);
         
         dispose();
         Pergunta2 pergunta2 = new Pergunta2(mensagem);
         pergunta2.setLocationRelativeTo(null);
-        pergunta2.setVisible(true);
-         
-     } else if (rbVegan.isSelected()) {
-        String regime = "'vegan'";
-        mensagem = "assert(fact("+regime+")),";
-         
-        System.out.println(mensagem);
-        
-        dispose();
-        Pergunta2 pergunta2 = new Pergunta2(mensagem);
-        pergunta2.setLocationRelativeTo(null);
-        pergunta2.setVisible(true);        
-     }
+        pergunta2.setVisible(true);       
      
-     else {
+     } else {
          JOptionPane.showMessageDialog(null,"Selecione uma das alternativas","Erro",JOptionPane.ERROR_MESSAGE);
      }
-        
     }//GEN-LAST:event_btProximoMouseClicked
-
-    private void rbVeganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVeganActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbVeganActionPerformed
-
-    private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
-        // TODO add your handling code here:
-        terminar();
-    }//GEN-LAST:event_btSairMouseClicked
 
     /**
      * @param args the command line arguments
@@ -201,7 +164,6 @@ public class Pergunta1 extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Pergunta1.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -215,10 +177,9 @@ public class Pergunta1 extends javax.swing.JFrame {
     private javax.swing.JLabel btProximo;
     private javax.swing.JLabel btSair;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton rbNormal;
-    private javax.swing.JRadioButton rbVegan;
-    private javax.swing.JRadioButton rbVegetariano;
+    private javax.swing.JRadioButton rbNao;
+    private javax.swing.JRadioButton rbSim;
     // End of variables declaration//GEN-END:variables
 }

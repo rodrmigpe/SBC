@@ -10,33 +10,34 @@ import javax.swing.UIManager;
 
 /**
  *
- * @author ssoar
+ * @author Rodrigo
  */
-public class Pergunta4 extends javax.swing.JFrame {
+public class PerguntaRestricao extends javax.swing.JFrame {
 
     /**
-     * Creates new form pergunta_3
+     * Creates new form PerguntaRestricao
      */
+    
     private String mensagem;
     
-    public Pergunta4(String mensagem) {
+    public PerguntaRestricao(String mensagem) {
         initComponents();
         this.mensagem = mensagem;
     }
     
      private void terminar() {        
-       UIManager.put("OptionPane.noButtonText", "Não");  
-       UIManager.put("OptionPane.yesButtonText", "Sim");
-        
-        if (JOptionPane.showConfirmDialog(null, 
-               "Deseja realmente terminar o programa?", 
-               "Terminar",
-               
-               JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                dispose();
-                System.exit(0);
-            
-       }
+      UIManager.put("OptionPane.noButtonText", "Não");  
+      UIManager.put("OptionPane.yesButtonText", "Sim");
+
+       if (JOptionPane.showConfirmDialog(null, 
+              "Deseja realmente terminar o programa?", 
+              "Terminar",
+
+              JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+               dispose();
+               System.exit(0);
+
+      }
     }
 
     /**
@@ -50,45 +51,33 @@ public class Pergunta4 extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
-        rbUmDez = new javax.swing.JRadioButton();
-        rbVinteMais = new javax.swing.JRadioButton();
-        rbOnzeVinte = new javax.swing.JRadioButton();
+        rbGluten = new javax.swing.JRadioButton();
+        rbLactose = new javax.swing.JRadioButton();
         btProximo = new javax.swing.JLabel();
         btSair = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMinimumSize(new java.awt.Dimension(616, 409));
+        setMinimumSize(new java.awt.Dimension(616, 408));
         setUndecorated(true);
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Arial Nova Light", 1, 14)); // NOI18N
-        jLabel2.setText("Qual o valor máximo que está disposto a pagar por uma refeição ?");
+        jLabel2.setText("Qual os seguintes compostos o afeta ?");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(100, 160, 480, 20);
+        jLabel2.setBounds(190, 130, 270, 40);
 
-        buttonGroup1.add(rbUmDez);
-        rbUmDez.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
-        rbUmDez.setText("1-10");
-        getContentPane().add(rbUmDez);
-        rbUmDez.setBounds(280, 190, 60, 25);
+        buttonGroup1.add(rbGluten);
+        rbGluten.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        rbGluten.setText("Glúten");
+        getContentPane().add(rbGluten);
+        rbGluten.setBounds(280, 180, 100, 23);
 
-        buttonGroup1.add(rbVinteMais);
-        rbVinteMais.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
-        rbVinteMais.setText("20+");
-        getContentPane().add(rbVinteMais);
-        rbVinteMais.setBounds(280, 270, 70, 25);
-
-        buttonGroup1.add(rbOnzeVinte);
-        rbOnzeVinte.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
-        rbOnzeVinte.setText("11-20");
-        rbOnzeVinte.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbOnzeVinteActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rbOnzeVinte);
-        rbOnzeVinte.setBounds(280, 230, 70, 25);
+        buttonGroup1.add(rbLactose);
+        rbLactose.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        rbLactose.setText("Lactose");
+        getContentPane().add(rbLactose);
+        rbLactose.setBounds(280, 230, 93, 23);
 
         btProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/right-arrow (2).png"))); // NOI18N
         btProximo.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -97,7 +86,7 @@ public class Pergunta4 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btProximo);
-        btProximo.setBounds(550, 190, 40, 32);
+        btProximo.setBounds(570, 190, 50, 40);
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/sair.png"))); // NOI18N
         btSair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -106,66 +95,51 @@ public class Pergunta4 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btSair);
-        btSair.setBounds(20, 190, 40, 32);
+        btSair.setBounds(10, 200, 40, 30);
 
         jLabel1.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
         getContentPane().add(jLabel1);
-        jLabel1.setBounds(-5, -6, 630, 430);
+        jLabel1.setBounds(-10, -10, 630, 430);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void rbOnzeVinteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbOnzeVinteActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbOnzeVinteActionPerformed
-
-    private void btProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btProximoMouseClicked
-        // TODO add your handling code here: 
-     if (rbUmDez.isSelected()) {
-         String preco = "'1-10'";
-         mensagem += "assert(fact("+ preco +")),";
-         
-        System.out.println(mensagem);
-        
-        dispose();
-        Pergunta5 pergunta5 = new Pergunta5(mensagem);
-        pergunta5.setLocationRelativeTo(null);
-        pergunta5.setVisible(true);
-    
-     } else if (rbOnzeVinte.isSelected()) {
-        String preco = "'11-20'";
-        mensagem += "assert(fact("+ preco +")),";
-         
-        System.out.println(mensagem);
-        
-         dispose();
-        Pergunta5 pergunta5 = new Pergunta5(mensagem);
-        pergunta5.setLocationRelativeTo(null);
-        pergunta5.setVisible(true);
-         
-     } else if (rbVinteMais.isSelected()) {
-        String preco = "'20+'";
-        mensagem += "assert(fact("+ preco +")),";
-         
-        System.out.println(mensagem);
-        
-        dispose();
-        Pergunta5 pergunta5 = new Pergunta5(mensagem);
-        pergunta5.setLocationRelativeTo(null);
-        pergunta5.setVisible(true);        
-     }
-     
-     else {
-         JOptionPane.showMessageDialog(null,"Selecione uma das alternativas","Erro",JOptionPane.ERROR_MESSAGE);
-     }
-    }//GEN-LAST:event_btProximoMouseClicked
-
     private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
         // TODO add your handling code here:
         terminar();
     }//GEN-LAST:event_btSairMouseClicked
+
+    private void btProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btProximoMouseClicked
+        // TODO add your handling code here:
+     
+     if (rbGluten.isSelected()) {
+         String restricao = "'noGluten'";
+         mensagem += "assert(fact("+restricao+")),";
+         
+        System.out.println(mensagem);
+        
+        dispose();
+        PerguntaRestricao3 pergunta3 = new PerguntaRestricao3(mensagem);
+        pergunta3.setLocationRelativeTo(null);
+        pergunta3.setVisible(true);
+    
+     } else if (rbLactose.isSelected()) {
+        String restricao = "'noLactose'";
+        mensagem += "assert(fact("+restricao+")),";
+         
+        System.out.println(mensagem);
+        
+        dispose();
+        PerguntaRestricao3 pergunta3 = new PerguntaRestricao3(mensagem);
+        pergunta3.setLocationRelativeTo(null);
+        pergunta3.setVisible(true);      
+     
+     } else {
+         JOptionPane.showMessageDialog(null,"Selecione uma das alternativas","Erro",JOptionPane.ERROR_MESSAGE);
+     }
+    }//GEN-LAST:event_btProximoMouseClicked
 
     /**
      * @param args the command line arguments
@@ -184,23 +158,20 @@ public class Pergunta4 extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Pergunta4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerguntaRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Pergunta4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerguntaRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Pergunta4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerguntaRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Pergunta4.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PerguntaRestricao.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                //new Pergunta4().setVisible(true);
+                //new PerguntaRestricao().setVisible(true);
             }
         });
     }
@@ -211,8 +182,7 @@ public class Pergunta4 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JRadioButton rbOnzeVinte;
-    private javax.swing.JRadioButton rbUmDez;
-    private javax.swing.JRadioButton rbVinteMais;
+    private javax.swing.JRadioButton rbGluten;
+    private javax.swing.JRadioButton rbLactose;
     // End of variables declaration//GEN-END:variables
 }

@@ -15,8 +15,9 @@ import javax.swing.UIManager;
 public class Pergunta2 extends javax.swing.JFrame {
 
     /**
-     * Creates new form pergunta_2
+     * Creates new form pergunta_1
      */
+    
     private String mensagem;
     
     public Pergunta2(String mensagem) {
@@ -24,19 +25,19 @@ public class Pergunta2 extends javax.swing.JFrame {
         this.mensagem = mensagem;
     }
     
-     private void terminar() {        
-       UIManager.put("OptionPane.noButtonText", "Não");  
-       UIManager.put("OptionPane.yesButtonText", "Sim");
-        
-        if (JOptionPane.showConfirmDialog(null, 
-               "Deseja realmente terminar o programa?", 
-               "Terminar",
-               
-               JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
-                dispose();
-                System.exit(0);
-            
-       }
+    private void terminar() {        
+      UIManager.put("OptionPane.noButtonText", "Não");  
+      UIManager.put("OptionPane.yesButtonText", "Sim");
+
+       if (JOptionPane.showConfirmDialog(null, 
+              "Deseja realmente terminar o programa?", 
+              "Terminar",
+
+              JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+               dispose();
+               System.exit(0);
+
+      }
     }
 
     /**
@@ -50,12 +51,11 @@ public class Pergunta2 extends javax.swing.JFrame {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel2 = new javax.swing.JLabel();
-        btSair = new javax.swing.JLabel();
+        rbNormal = new javax.swing.JRadioButton();
+        rbVegetariano = new javax.swing.JRadioButton();
+        rbVegan = new javax.swing.JRadioButton();
         btProximo = new javax.swing.JLabel();
-        rbFastFood = new javax.swing.JRadioButton();
-        rbVegetariana = new javax.swing.JRadioButton();
-        rbComidaTradicional = new javax.swing.JRadioButton();
-        rbComidaOriental = new javax.swing.JRadioButton();
+        btSair = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -64,9 +64,46 @@ public class Pergunta2 extends javax.swing.JFrame {
         getContentPane().setLayout(null);
 
         jLabel2.setFont(new java.awt.Font("Arial Nova Light", 1, 14)); // NOI18N
-        jLabel2.setText("Que tipo de refeição consome mais frequentemente ?");
+        jLabel2.setText("Qual o seu estilo alimentar ?");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(160, 140, 390, 23);
+        jLabel2.setBounds(220, 130, 250, 20);
+
+        buttonGroup1.add(rbNormal);
+        rbNormal.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        rbNormal.setText("Normal");
+        rbNormal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbNormalActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rbNormal);
+        rbNormal.setBounds(280, 170, 90, 25);
+
+        buttonGroup1.add(rbVegetariano);
+        rbVegetariano.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        rbVegetariano.setText("Vegetariano");
+        getContentPane().add(rbVegetariano);
+        rbVegetariano.setBounds(280, 210, 100, 25);
+
+        buttonGroup1.add(rbVegan);
+        rbVegan.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
+        rbVegan.setText("Vegan");
+        rbVegan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rbVeganActionPerformed(evt);
+            }
+        });
+        getContentPane().add(rbVegan);
+        rbVegan.setBounds(280, 250, 70, 25);
+
+        btProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/right-arrow (2).png"))); // NOI18N
+        btProximo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btProximoMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btProximo);
+        btProximo.setBounds(540, 190, 40, 32);
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/sair.png"))); // NOI18N
         btSair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -77,121 +114,69 @@ public class Pergunta2 extends javax.swing.JFrame {
         getContentPane().add(btSair);
         btSair.setBounds(20, 190, 40, 32);
 
-        btProximo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/right-arrow (2).png"))); // NOI18N
-        btProximo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btProximoMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btProximo);
-        btProximo.setBounds(550, 190, 40, 32);
-
-        buttonGroup1.add(rbFastFood);
-        rbFastFood.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        rbFastFood.setText("Fast-Food");
-        rbFastFood.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                rbFastFoodActionPerformed(evt);
-            }
-        });
-        getContentPane().add(rbFastFood);
-        rbFastFood.setBounds(270, 180, 120, 23);
-
-        buttonGroup1.add(rbVegetariana);
-        rbVegetariana.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        rbVegetariana.setText("Vegetariana");
-        getContentPane().add(rbVegetariana);
-        rbVegetariana.setBounds(270, 210, 120, 23);
-
-        buttonGroup1.add(rbComidaTradicional);
-        rbComidaTradicional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        rbComidaTradicional.setText("Comida Tradicional");
-        getContentPane().add(rbComidaTradicional);
-        rbComidaTradicional.setBounds(270, 240, 140, 23);
-
-        buttonGroup1.add(rbComidaOriental);
-        rbComidaOriental.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        rbComidaOriental.setText("Comida Oriental");
-        getContentPane().add(rbComidaOriental);
-        rbComidaOriental.setBounds(270, 270, 130, 23);
-
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
-        jLabel3.setBounds(-10, -10, 650, 430);
+        jLabel3.setBounds(0, -10, 640, 440);
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void rbNormalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbNormalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbNormalActionPerformed
+
     private void btProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btProximoMouseClicked
         // TODO add your handling code here:
-   
+     
+     if (rbNormal.isSelected()) {
+         String regime = "'normal'";
+         mensagem += "assert(fact("+regime+")),";
+         
+        System.out.println(mensagem);
         
-        if (rbFastFood.isSelected() || rbVegetariana.isSelected() || rbComidaTradicional.isSelected() || rbComidaOriental.isSelected()){
-             if (rbFastFood.isSelected()){
-                 String tipo = "'fastFood'";
-                 mensagem += "assert(fact("+tipo+")),";
-                 
-                 System.out.println(mensagem);
-                 
-                 this.dispose();
-                 Pergunta3 pergunta3 = new Pergunta3(mensagem);
-                 pergunta3.setLocationRelativeTo(null);
-                 pergunta3.setVisible(true);
-                 
-              
-             }
-              if (rbVegetariana.isSelected()){
-                 String tipo = "'vegetariana'";
-                 mensagem += "assert(fact("+tipo+")),";
-                 
-                 System.out.println(mensagem);
-                 
-                 this.dispose();
-                 Pergunta3 pergunta3 = new Pergunta3(mensagem);
-                 pergunta3.setLocationRelativeTo(null);
-                 pergunta3.setVisible(true);
-                 
-             }
-               if (rbComidaTradicional.isSelected()){
-                 String tipo = "'comidaTradicional'";
-                 mensagem += "assert(fact("+tipo+")),";
-                 
-                 System.out.println(mensagem);
-                 
-                 this.dispose();
-                 Pergunta3 pergunta3 = new Pergunta3(mensagem);
-                 pergunta3.setLocationRelativeTo(null);
-                 pergunta3.setVisible(true);
-                 
-             }
-               if (rbComidaOriental.isSelected()){
-                 String tipo = "'comidaOriental'";
-                 mensagem += "assert(fact("+tipo+")),";
-                 
-                 System.out.println(mensagem);
-                 
-                 this.dispose();
-                 Pergunta3 pergunta3 = new Pergunta3(mensagem);
-                 pergunta3.setLocationRelativeTo(null);
-                 pergunta3.setVisible(true);
-                 
-             }
-        }
+        dispose();
+        Pergunta3 pergunta3 = new Pergunta3(mensagem);
+        pergunta3.setLocationRelativeTo(null);
+        pergunta3.setVisible(true);
+    
+     } else if (rbVegetariano.isSelected()) {
+        String regime = "'vegetariano'";
+        mensagem += "assert(fact("+regime+")),";
+         
+        System.out.println(mensagem);
         
-        else {
-                JOptionPane.showMessageDialog(null,"Selecione uma das alternativas","Erro",JOptionPane.ERROR_MESSAGE);
+        dispose();
+        Pergunta3 pergunta3 = new Pergunta3(mensagem);
+        pergunta3.setLocationRelativeTo(null);
+        pergunta3.setVisible(true);
+         
+     } else if (rbVegan.isSelected()) {
+        String regime = "'vegan'";
+        mensagem += "assert(fact("+regime+")),";
+         
+        System.out.println(mensagem);
+        
+        dispose();
+        Pergunta3 pergunta3 = new Pergunta3(mensagem);
+        pergunta3.setLocationRelativeTo(null);
+        pergunta3.setVisible(true);        
      }
+     
+     else {
+         JOptionPane.showMessageDialog(null,"Selecione uma das alternativas","Erro",JOptionPane.ERROR_MESSAGE);
+     }
+        
     }//GEN-LAST:event_btProximoMouseClicked
+
+    private void rbVeganActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbVeganActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rbVeganActionPerformed
 
     private void btSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btSairMouseClicked
         // TODO add your handling code here:
         terminar();
     }//GEN-LAST:event_btSairMouseClicked
-
-    private void rbFastFoodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rbFastFoodActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_rbFastFoodActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,6 +205,8 @@ public class Pergunta2 extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -235,9 +222,8 @@ public class Pergunta2 extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JRadioButton rbComidaOriental;
-    private javax.swing.JRadioButton rbComidaTradicional;
-    private javax.swing.JRadioButton rbFastFood;
-    private javax.swing.JRadioButton rbVegetariana;
+    private javax.swing.JRadioButton rbNormal;
+    private javax.swing.JRadioButton rbVegan;
+    private javax.swing.JRadioButton rbVegetariano;
     // End of variables declaration//GEN-END:variables
 }

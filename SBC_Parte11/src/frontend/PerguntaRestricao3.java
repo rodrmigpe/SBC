@@ -5,21 +5,23 @@
  */
 package frontend;
 
+import java.io.IOException;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import org.jpl7.Query;
 
 /**
  *
  * @author ssoar
  */
-public class Pergunta3 extends javax.swing.JFrame {
+public class PerguntaRestricao3 extends javax.swing.JFrame {
 
     /**
      * Creates new form pergunta_2
      */
     private String mensagem;
     
-    public Pergunta3(String mensagem) {
+    public PerguntaRestricao3(String mensagem) {
         initComponents();
         this.mensagem = mensagem;
     }
@@ -66,7 +68,7 @@ public class Pergunta3 extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Arial Nova Light", 1, 14)); // NOI18N
         jLabel2.setText("Que tipo de refeição consome mais frequentemente ?");
         getContentPane().add(jLabel2);
-        jLabel2.setBounds(160, 140, 390, 23);
+        jLabel2.setBounds(140, 140, 430, 23);
 
         btSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/sair.png"))); // NOI18N
         btSair.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -87,7 +89,7 @@ public class Pergunta3 extends javax.swing.JFrame {
         btProximo.setBounds(550, 190, 40, 32);
 
         buttonGroup1.add(rbFastFood);
-        rbFastFood.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbFastFood.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         rbFastFood.setText("Fast-Food");
         rbFastFood.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,26 +97,27 @@ public class Pergunta3 extends javax.swing.JFrame {
             }
         });
         getContentPane().add(rbFastFood);
-        rbFastFood.setBounds(270, 180, 120, 23);
+        rbFastFood.setBounds(240, 180, 120, 25);
 
         buttonGroup1.add(rbVegetariana);
-        rbVegetariana.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbVegetariana.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         rbVegetariana.setText("Vegetariana");
         getContentPane().add(rbVegetariana);
-        rbVegetariana.setBounds(270, 210, 120, 23);
+        rbVegetariana.setBounds(240, 210, 120, 25);
 
         buttonGroup1.add(rbComidaTradicional);
-        rbComidaTradicional.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbComidaTradicional.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         rbComidaTradicional.setText("Comida Tradicional");
         getContentPane().add(rbComidaTradicional);
-        rbComidaTradicional.setBounds(270, 240, 140, 23);
+        rbComidaTradicional.setBounds(240, 240, 140, 25);
 
         buttonGroup1.add(rbComidaOriental);
-        rbComidaOriental.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        rbComidaOriental.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         rbComidaOriental.setText("Comida Oriental");
         getContentPane().add(rbComidaOriental);
-        rbComidaOriental.setBounds(270, 270, 130, 23);
+        rbComidaOriental.setBounds(240, 270, 130, 25);
 
+        jLabel3.setFont(new java.awt.Font("Arial Nova Light", 0, 12)); // NOI18N
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagens/fundo_5.jpg"))); // NOI18N
         getContentPane().add(jLabel3);
         jLabel3.setBounds(-10, -10, 650, 430);
@@ -125,57 +128,142 @@ public class Pergunta3 extends javax.swing.JFrame {
 
     private void btProximoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btProximoMouseClicked
         // TODO add your handling code here:
-   
+        Query query = new Query("consult('C:/Users/Rodrigo/Desktop/Universidade/2º semestre/SBC/SBC_Parte11/base_conhecimento.pl')");
+          
+        System.out.println("consult " + (query.hasSolution() ? "ok" : "falhou"));   
         
         if (rbFastFood.isSelected() || rbVegetariana.isSelected() || rbComidaTradicional.isSelected() || rbComidaOriental.isSelected()){
              if (rbFastFood.isSelected()){
                  String tipo = "'fastFood'";
-                 mensagem += "assert(fact("+tipo+")),";
+                 mensagem += "assert(fact("+tipo+")),resposta(P).";
                  
                  System.out.println(mensagem);
                  
-                 this.dispose();
-                 Pergunta4 pergunta4 = new Pergunta4(mensagem);
-                 pergunta4.setLocationRelativeTo(null);
-                 pergunta4.setVisible(true);
-                 
-              
+                 Query result = new Query(mensagem);   
+      
+                String refeicao =  result.oneSolution().get("P").toString();
+                              
+                refeicao = refeicao.replace("â‚¬", " €");
+                refeicao = refeicao.replace("Ã§Ã£", "çã");
+                refeicao = refeicao.replace("[[['  ", "");  
+                refeicao = refeicao.replace("[[['", "");
+                refeicao = refeicao.replace("']], _1]", ""); 
+
+                if(refeicao.length() != 0) {
+                     try {
+                         dispose();
+                         Resultado resultado = new Resultado(refeicao);
+                         resultado.setLocationRelativeTo(null);
+                         resultado.setVisible(true);
+                     } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Ocorreu um erro","Erro",JOptionPane.ERROR_MESSAGE);
+                     }
+                
+                } else {                  
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado.","Informação",JOptionPane.INFORMATION_MESSAGE);
+                }
+        
+                System.out.println(refeicao); 
+                
              }
+              
               if (rbVegetariana.isSelected()){
                  String tipo = "'vegetariana'";
-                 mensagem += "assert(fact("+tipo+")),";
+                 mensagem += "assert(fact("+tipo+")),resposta(P).";
                  
                  System.out.println(mensagem);
                  
-                 this.dispose();
-                 Pergunta4 pergunta4 = new Pergunta4(mensagem);
-                 pergunta4.setLocationRelativeTo(null);
-                 pergunta4.setVisible(true);
-                 
+                 Query result = new Query(mensagem);   
+      
+                String refeicao =  result.oneSolution().get("P").toString();
+                              
+                refeicao = refeicao.replace("â‚¬", " €");
+                refeicao = refeicao.replace("Ã§Ã£", "çã");
+                refeicao = refeicao.replace("[[['  ", "");  
+                refeicao = refeicao.replace("[[['", "");
+                refeicao = refeicao.replace("']], _1]", ""); 
+
+                if(refeicao.length() != 0) {
+                     try {
+                         dispose();
+                         Resultado resultado = new Resultado(refeicao);
+                         resultado.setLocationRelativeTo(null);
+                         resultado.setVisible(true);
+                     } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Ocorreu um erro","Erro",JOptionPane.ERROR_MESSAGE);
+                     }
+                
+                } else {                  
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado.","Informação",JOptionPane.INFORMATION_MESSAGE);
+                }
+        
+                System.out.println(refeicao); 
+                
              }
+                 
                if (rbComidaTradicional.isSelected()){
                  String tipo = "'comidaTradicional'";
-                 mensagem += "assert(fact("+tipo+")),";
+                 mensagem += "assert(fact("+tipo+")),resposta(P).";
                  
                  System.out.println(mensagem);
                  
-                 this.dispose();
-                 Pergunta4 pergunta4 = new Pergunta4(mensagem);
-                 pergunta4.setLocationRelativeTo(null);
-                 pergunta4.setVisible(true);
-                 
+                 Query result = new Query(mensagem);   
+      
+                String refeicao =  result.oneSolution().get("P").toString();
+                              
+                refeicao = refeicao.replace("â‚¬", " €");
+                refeicao = refeicao.replace("Ã§Ã£", "çã");
+                refeicao = refeicao.replace("[[['  ", "");  
+                refeicao = refeicao.replace("[[['", "");
+                refeicao = refeicao.replace("']], _1]", ""); 
+
+                if(refeicao.length() != 0) {
+                     try {
+                         dispose();
+                         Resultado resultado = new Resultado(refeicao);
+                         resultado.setLocationRelativeTo(null);
+                         resultado.setVisible(true);
+                     } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Ocorreu um erro","Erro",JOptionPane.ERROR_MESSAGE);
+                     }
+                
+                } else {                  
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado.","Informação",JOptionPane.INFORMATION_MESSAGE);
+                }
+        
+                System.out.println(refeicao); 
+                
              }
                if (rbComidaOriental.isSelected()){
                  String tipo = "'comidaOriental'";
-                 mensagem += "assert(fact("+tipo+")),";
+                 mensagem += "assert(fact("+tipo+")),resposta(P).";
                  
-                 System.out.println(mensagem);
-                 
-                 this.dispose();
-                 Pergunta4 pergunta4 = new Pergunta4(mensagem);
-                 pergunta4.setLocationRelativeTo(null);
-                 pergunta4.setVisible(true);
-                 
+                 Query result = new Query(mensagem);   
+      
+                String refeicao =  result.oneSolution().get("P").toString();
+                              
+                refeicao = refeicao.replace("â‚¬", " €");
+                refeicao = refeicao.replace("Ã§Ã£", "çã");
+                refeicao = refeicao.replace("[[['  ", "");  
+                refeicao = refeicao.replace("[[['", "");
+                refeicao = refeicao.replace("']], _1]", ""); 
+
+                if(refeicao.length() != 0) {
+                     try {
+                         dispose();
+                         Resultado resultado = new Resultado(refeicao);
+                         resultado.setLocationRelativeTo(null);
+                         resultado.setVisible(true);
+                     } catch (IOException ex) {
+                        JOptionPane.showMessageDialog(null,"Ocorreu um erro","Erro",JOptionPane.ERROR_MESSAGE);
+                     }
+                
+                } else {                  
+                    JOptionPane.showMessageDialog(null, "Nenhum resultado encontrado.","Informação",JOptionPane.INFORMATION_MESSAGE);
+                }
+        
+                System.out.println(refeicao); 
+                
              }
         }
         

@@ -986,6 +986,79 @@ refeicao('perfil108',[ [' Macarrao Vegetariano
 		       \n https://www.montaencanta.com.br/wp-content/uploads/2018/04/bifum-com-shimeji-3.jpg
                        \n Descrição: Macarrao de bifum com shiitake' ]]).
 
+refeicao('perfil109',[ [' Salada colorida e completa
+                       \n Sul
+                       \n Normal
+                       \n Fast-Food
+                       \n 1-10€
+                       \n Dieta
+		       \n https://2.bp.blogspot.com/-qJu0UPiBAz0/VlcKTbqnLQI/AAAAAAAAFJY/r0rSwlivq0g/s400/Salad%25C3%25A3o%2Bblog%2B1.jpg
+                       \n Descrição: Batata inglesa, cenoura, beterraba, couve-flor, tomate, brocolis, ovo.' ]]).
+ 
+refeicao('perfil86',[ [' Hamburguer de Tofu
+                       \n Norte
+                       \n Vegetariano
+                       \n Fast-Food
+                       \n 1-10€
+                       \n Prato do Quotidiano
+		       \n https://img.cybercook.com.br/receitas/870/hamburguer-vegano-de-tofu-623x350.jpeg
+                       \n Descrição: Hamburguer de tofu com cebola']]).
+ 
+ 
+refeicao('perfil111',[ [' Salmao no forno com espargos
+                       \n Centro
+                       \n Normal
+                       \n Comida Tradicional
+                       \n 20€+
+                       \n Dias Especiais
+		       \n https://c1.quickcachr.fotos.sapo.pt/i/G9417a074/21202811_oeLzU.jpeg
+                       \n Descrição: Salmao, limao, espargos, azeite, vinagre, sal, mel, mostarda' ]]).
+ 
+refeicao('perfil112',[ [' Sushi sem gluten
+                       \n Sul
+                       \n Normal
+                       \n Comida Oriental
+                       \n 11-20€+
+                       \n Algumas Vezes
+		       \n https://veganandcolors.com/wp-content/uploads/2017/02/cn.jpg
+                       \n Descrição: Salmao, shoyu, legumes' ]]).
+ 
+refeicao('perfil113',[ [' Salada Russa
+                       \n Sul
+                       \n Normal
+                       \n Fast Food
+                       \n 1-10€
+                       \n Dieta
+		       \n https://www.pingodoce.pt/wp-content/uploads/2017/08/salada-russa.jpg
+                       \n Descrição: Batata, ervilhas, cenouras, maionse, feijao-redondo, pimenta, cebola.' ]]).
+ 
+refeicao('perfil113',[ [' Salada de feijao frade
+                       \n Norte
+                       \n Vegetariano
+                       \n Comida Vegetariana
+                       \n 1-10€
+                       \n Dieta
+		       \n https://www.cozinhatecnica.com/wp-content/uploads/2021/02/receita-de-salada-de-feijao-fradinho-ou-salada-de-feijao-frade-500x500.jpg
+                       \n Descrição: Feijao frade, cebola, cenoura, espargos, couve, tomate, batata' ]]).
+ 
+refeicao('perfil115',[ [' Arroz de marisco
+                       \n Sul
+                       \n Normal
+                       \n Comida Tradicional
+                       \n 20€+
+                       \n Dias Especiais
+		       \n https://cozinharsemstress.pt/cozinhar/wp-content/uploads/2017/08/B-004-3149-site.jpg
+                       \n Descrição: Camarao, delicias do mar, tomate, arroz carolino, limao, cebola, mexilhao.' ]]).
+
+refeicao('perfil116',[ [' Sushi sem lactose
+                       \n Sul
+                       \n Normal
+                       \n Comida Oriental
+                       \n 11-20€+
+                       \n Algumas Vezes
+		       \n https://veganandcolors.com/wp-content/uploads/2017/02/cn.jpg
+                       \n Descrição: Salmao, shoyu, legumes' ]]).
+
 
 
 
