@@ -938,7 +938,7 @@ refeicao('perfil103',[ [' Strogonoff de Berinjela
                        \n Comida Vegetariana
                        \n 20€+
                        \n Dieta
-		       \n https://www.acasaencantada.com.br/wp-content/uploads/2018/03/Screen-Shot-2020-11-21-at-12.18.08-320x321.png
+		       \n http://lojapurific.agenciapimenta.com.br/wp-content/uploads/2018/12/beringela-600x400.jpg
                        \n Descrição: Strogonoff de beringela e salsa' ]]).
  
 refeicao('perfil104',[ [' Paella Vegetariana

@@ -17,11 +17,15 @@ import org.jpl7.Query;
  *
  * @author ssoar
  */
+        
 public class PaginaInicial extends javax.swing.JFrame {
 
     /**
      * Creates new form pagina_inicial
      */
+    
+    private String asserts;
+    
     public PaginaInicial() {
         initComponents();
     }
@@ -51,6 +55,8 @@ public class PaginaInicial extends javax.swing.JFrame {
         Random rand = new Random();
         
         ArrayList<String> restricaoArray = new ArrayList<>();
+        
+        ArrayList<String> alergicoArray = new ArrayList<>();
               
         ArrayList<String> regimeArray = new ArrayList<>();
 
@@ -63,6 +69,9 @@ public class PaginaInicial extends javax.swing.JFrame {
         
         restricaoArray.add("'sim'");
         restricaoArray.add("'nao'");
+        
+        alergicoArray.add("'noGluten'");
+        alergicoArray.add("'noLactose'");
         
         regimeArray.add("'normal'");
         regimeArray.add("'vegan'");
@@ -79,19 +88,30 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         ocasiaoArray.add("'diasEspeciais'");
         ocasiaoArray.add("'dieta'");
-        ocasiaoArray.add("'algumasVezes'");
+        ocasiaoArray.add("'algumasVezes'");       
         
-        int restricaoIndex = rand.nextInt(restricaoArray.size()); 
+        //int restricaoIndex = rand.nextInt(restricaoArray.size()); 
+        //int alergicoIndex = Math.abs(rand.nextInt(alergicoArray.size())); 
+        //int tipoIndex = rand.nextInt(tipoArray.size()); 
+        //int ocasiaoIndex = rand.nextInt(ocasiaoArray.size()); 
+        //int precoIndex = rand.nextInt(precoArray.size()); 
+        
+        
+        int restricaoIndex = Math.abs(rand.nextInt()%2);
+        
+        int alergicoIndex = Math.abs(rand.nextInt()%2); 
 
-        int regimeIndex = rand.nextInt(regimeArray.size()); 
+        int regimeIndex = Math.abs(rand.nextInt()%3); 
 
-        int tipoIndex = rand.nextInt(tipoArray.size()); 
+        int tipoIndex = Math.abs(rand.nextInt()%4); 
 
-        int ocasiaoIndex = rand.nextInt(ocasiaoArray.size()); 
+        int ocasiaoIndex = Math.abs(rand.nextInt()%3); 
 
-        int precoIndex = rand.nextInt(precoArray.size()); 
+        int precoIndex = Math.abs(rand.nextInt()%3); 
         
         String restricao = restricaoArray.get(restricaoIndex);
+        
+        String alergico = alergicoArray.get(alergicoIndex);
 
         String regime = regimeArray.get(regimeIndex);
 
@@ -101,8 +121,13 @@ public class PaginaInicial extends javax.swing.JFrame {
 
         String preco = precoArray.get(precoIndex);
 
-
-        String asserts = "assert(fact("+ restricao + ")),assert(fact("+ regime + ")),assert(fact(" + tipo + ")),assert(fact(" + preco + ")),assert(fact(" + ocasiao + ")), resposta(P).";
+        if (restricaoIndex == 1) {
+            asserts = "assert(fact("+ restricao + ")),assert(fact("+ regime + ")),assert(fact(" + tipo + ")),assert(fact(" + preco + ")),assert(fact(" + ocasiao + ")), resposta(P).";
+        }
+        
+        if (restricaoIndex == 0) {
+            asserts = "assert(fact("+ restricao + ")),assert(fact("+ alergico + ")),assert(fact(" + tipo + ")), resposta(P).";
+        }
 
         System.out.println(asserts);
     
