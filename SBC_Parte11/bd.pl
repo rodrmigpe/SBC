@@ -162,7 +162,7 @@ refeicao('perfil18',[ [' Tortellini de espinafres com ovo
                        \n 20+€
                        \n Comida do Cotidiano
 		       \n https://www.pingodoce.pt/wp-content/uploads/2018/10/tortelini-espinafres-tiras-ovo.jpg
-                       \n Descrição: Tortellini de espinafres com ovo, uma refeição que se ainda não provou ja vai tarde.' ]]).
+                       \n Descrição: Tortellini de espinafres com ovo, uma refeicao que se ainda nao provou ja vai tarde.' ]]).
  
 refeicao('perfil19',[ [' Bife no Prego
                        \n Centro
@@ -573,7 +573,7 @@ refeicao('perfil63',[ [' Empada de quinoa
                        \n +20€
                        \n Dias especiais
 		       \n https://www.pingodoce.pt/wp-content/uploads/2018/10/empada-quinoa.jpg
-                       \n Descrição: Farinha , azeite, sal, tomilho, abóbora aos cubos, espinafres, miolo de noz, tomate cherry, sementes de linhaça, arandos desidratados e agua' ]]).
+                       \n Descrição: Farinha , azeite, sal, tomilho, abobora aos cubos, espinafres, miolo de noz, tomate cherry, sementes de linhaça, arandos desidratados e agua' ]]).
 
 refeicao('perfil64',[ [' Caril de jaca
                        \n Norte
