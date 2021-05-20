@@ -2,148 +2,101 @@
 <p align="center">
   <a href="https://www.uminho.pt" target="_blank"><img src="https://i.imgur.com/FXQo8OL.png" alt="Universidade do Minho"></a>
   <a href="https://www.eng.uminho.pt" target="_blank"><img src="https://i.imgur.com/WABo4st.png" alt="Escola de Engenharia"></a>
-  <br><a href="http://www.dsi.uminho.pt" target="_blank"><strong>Departamento de Sistemas de Informação</strong></a>
   
   <h2 align="center">Projeto Prático SBC - MIEGSI 2020/2021</h2>
   <br>
   
-## Índice de conteúdos
+## Índice
 
 - [Introdução](#intro)
-- [Tarefa A - Aconselhamento para compra de uma refeição](#ta)
-  - [Parte 1 - Aquisição manual de conhecimento](#ta1)
-  - [Parte 2 - Aquisição automática de conhecimento](#ta2)
-  - [Pré-requesitos](#pre1)
-  - [Getting started](#getting1)
-    - [Quick-start](#quick1)
-    - [Installation](#install1)
-    - [Usage](#usage1)
-- [Tarefa B - Aconselhamento de trajeto para entrega de uma refeição](#tb)
-  - [Parte 1 - Resolução via Procura ](#tb1)
-  - [Parte 2 - Otimização do lucro, tempo ou ambos ](#tb2)
-  - [Pré-requesitos](#pre2)
-  - [Getting started](#getting2)
-    - [Quick-start](#quick2)
-    - [Usage](#usage2)
+- [Tarefa A](#ta)
+  - [Parte 1 (BC Manual) - Tarefa A](#ta1)
+  - [Parte 2 (BC Automática) - Tarefa A](#ta2)
+  - [Pré-requisitos](#pre1)
+  - [Getting started (Tarefa A e B)](#getting1)
+    - [Variáveis de Ambiente SWIPL](#quick1)
+    - [Netbeans Library](#quick2)
+   - [Usage](#usage1)
+      - [Página Inicial](#quick3)
+      - [Pergunta - Ocasiões](#quick4)
+      - [Resultado](#quick5)
+- [Tarefa B](#tb)
+  - [Parte 1 (Transition Stage) - Tarefa B](#tb1)
+  - [Parte 2 (Otimização) - Tarefa B](#tb2)
+  - [Usage](#usage2)
+      - [Página Inicial](#quick6)
+      - [Trajetos](#quick7)
+      - [Resultado](#quick8)
 - [Ferramentas](#built)
 - [Licensa](#license)
 - [Contactos](#contact)
-- [Reconhecimentos](#ack)
+- [Agradecimentos](#ack)
 - [Referências](#refer)
 
 ## Introdução <a name = "intro"></a>
 
-No âmbito da unidade curricular de Sistemas Baseados em Conhecimento, foi-nos proposto a conceção de um SBC implementado na linguagem Prolog, estando a mesma dividida em 2 tarefas com 2 partes cada uma, tendo por base o conceito de food delivery, tão em voga no último ano decorrente da situação pandémica que vivenciamos.
+No âmbito na unidade curricular de SBC foi no proposto a elaboração de projeto relacionado com o aconselhamento na compra de uma refeição (Parte A) e o aconselhamento do trajeto para a entrega de uma refeição (Parte B).
+Todo o desenvolvimento do projeto foi realizado com o auxílio da linguagem Prolog, que é uma linguagem lógica que está centrada num conjunto poderoso de mecanismos básicos tais como: identificação de padrões, estruturas de dados em arvore e backtracking automático. Todas estas características fazem do Prolog uma ferramenta muito útil para estes tipos de projetos centrados em extração de conhecimento automático.
 
+## Tarefa A <a name = "ta"></a>
+Na tarefa A, o conhecimento tem que ser adquirido tanto manualmente (Parte 1) como automaticamente (Parte 2). Na parte da extração do conhecimento automático, o SBC tem de ser implementado com regras que devem ser geradas via aquisição automática (Data Mining/ Machine Learning), com o auxílio de ferramentas como o [R](https://www.r-project.org/) ou [Weka](https://www.cs.waikato.ac.nz/ml/weka/) e utilizando a linguagem [Prolog](https://www.swi-prolog.org/).
 
-## Tarefa A - Aconselhamento para compra de uma refeição <a name = "ta"></a>
-Dentro do conceito de fooddelivery, take away & drive-in, pretende-se que elabore um SBC para aconselhar sobre a escolha e compra de uma refeição(com entrega em casa ou take away). Através de uma interface desenvolvida em python com auxílio do intepretador de Prolog [Pyswip](https://pypi.org/project/pyswip), é possível fazer pesquizas na nossa base de conhecimento Prolog usando o WhatsApp.
+### Parte 1 (BC Manual) - Tarefa A  <a name = "ta1"></a>
+Na primeira parte da tarefa A, foi realizado um sistema baseado em conhecimento (com aquisição de conhecimento manual) para aconselhar um utilizador sobre a escolha e compra de uma refeição. Em aberto, estavam diversos parâmetros que podíamos manipular como os perfis dos clientes, os gostos e as suas necessidades, custos, e entre outros.
 
-### Parte 1 - Aquisição manual de conhecimento  <a name = "ta1"></a>
-Nesta fase foram usadas técnias de aquisição de conhecimento manual (Pesquiza e intrevistas) para a conceção de [regras de produção manuais](/server/prolog/baseconhecimento.pl).
-
-### Parte 2 - Aquisição automática de conhecimento <a name = "ta2"></a>
-Nesta segunda fase foi desenvolvido e partilhado um formulário usando o [Google Forms](https://www.google.com/forms/about). A respostas foram depois descarregas para o ficheiro [pratos.csv](/data_mining/pratos.csv). Foi depois escrita uma [pequena script em R](/data_mining/pratos_script.R) que gerou [regras de produção](/data_mining/regras.txt) de forma automática, que pudessem ser usadas pelo [Prolog](/server/prolog/baseconhecimentoautomatica.pl).
-
+### Parte 2 (BC Automática) - Tarefa A <a name = "ta2"></a>
+Terminada a parte 1, passou-se para a parte 2 da mesma tarefa com o mesmo objetivo da primeira parte (uma plataforma para aconselhar um utilizador sobre a escolha e compra de uma refeição), mas agora o sistema de conhecimento deve ser adquirido automaticamente com o auxílio de algumas ferramentas de Data Mining/Machine Learning (como o [Weka](https://www.cs.waikato.ac.nz/ml/weka/) ou [R 4.0](https://cran.r-project.org/mirrors.html).
 
 ### Pré-requisitos <a name = "pre1"></a>
 * [SWI-Prolog 8.2.4](https://www.swi-prolog.org/download/stable)
-* [Python 3.9](https://www.python.org/downloads)
-* [Twilio Sandbox for WhatsApp](https://www.twilio.com/docs/whatsapp/sandbox)
-* [npm](https://www.npmjs.com/get-npm)
 * [R 4.0](https://cran.r-project.org/mirrors.html)
-* [RStudio](https://www.rstudio.com/products/rstudio/download)
+* [Weka](https://waikato.github.io/weka-wiki/downloading_weka/)
+* [NetBeans](https://netbeans.apache.org/download/nb113/nb113.html)
+* [VSCode](https://code.visualstudio.com/)
 
+## Getting started (Tarefa A e B) <a name = "getting1"></a>
 
-## Getting started <a name = "getting1"></a>
-
-### Quick-start <a name = "quick1"></a>
-
-#### Start your server
-  ```sh
-  python app.py
-  ```
-#### Expose your server to the world
-  ```sh
-  npx localtunnel --port 5000
-  ```
-#### Configure your Twilio Sandbox
-![Twilio Sandbox](https://i.imgur.com/0tFXC6P.png)
-
-#### Join the Twilio WhatsApp Sandbox
-Send a WhatsApp message to +1 415 523 8886 with the code **join disappear-organized**.
-
-![Join the Twilio WhatsApp Sandbox](https://i.imgur.com/8tKLhgM.png)
-
-### Installation  <a name = "install1"></a>
+### Variáveis de Ambiente SWIPL <a name = "quick1"></a>
 #### Add SWI-Prolog to the PATH environment variable
-#### Clone the repo
-  ```sh
-  git clone https://github.com/nonvegan/trabalho-sbc.git
-  ```
-#### Install all the dependecies
-  ```sh
-  pip install flask pyswip twilio python-dotenv
-  ```
-#### Configure your .env file
-  ```python
-  TWILIO_USER=twiliouser
-  TWILIO_TOKEN=twiliotoken
-  TWILIO_PHONE=whatsapp:+123456789
-  PHONE=whatsapp:+351123456789
-  ```
+![Variaveis_Ambiente](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/Variaveis_Ambiente.gif)
+
+### Netbeans Library <a name = "quick2"></a>
+![NetbeansJPL](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/NetbeansJPL.gif)
+
 ### Usage  <a name = "usage1"></a>
-* Type a message with the keyword **!dish**.
-* Answer the quick survey.
-* Wait for your dish suggestion.
-* Message either **!manual** or **!automatica** to switch the type of the knowledge base.
-* Type **!dish** to start over.
+#### Página Inicial <a name = "quick3"></a>
+![PAGINA INICIAL](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/PAGINA%20INICIAL.PNG)
 
-![Bot](https://i.imgur.com/uquLinP.png)
+#### Pergunta - Ocasiões <a name = "quick4"></a>
+![PERGUNTA](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/PERGUNTA.PNG)
 
-## Tarefa B - Aconselhamento de trajeto para entrega de uma refeição <a name = "tb"></a>
-Desenvolver um SBC para um estafeta que usa uma scooter como meio de transporte que trabalha para um sistema de entrega de um restaurante. O SBC deve aconselhar que encomendas o estafeta deve pegar no restaurante e qual o caminho a seguir para proceder às entregas. Optamos por desenvolver uma webapp com o auxílio do intrepertador Prolog em JavaScript [Tau prolog](http://tau-prolog.org) como interface para o nosso SBC.
+#### Resultado <a name = "quick5"></a>
+![RESULTADO](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/RESULTADO.PNG)
 
-### Parte 1 - Resolução via Procura <a name = "tb1"></a>
-Nesta parte foram desenvolvidas as funcionalidades de procura para o objetivo 1 (a scooter só pode levar uma encomenda de cada vez) e 2 (a scooter pode levar uma ou duas encomendas de cada vez), podendo o utilizador escolher depth-first, iterative-deepening e breath-first como métodos de procura.
-Publicamos o nosso SBC na web através da plataforma Netlify no endereço https://projeto-sbc-g53-parte2-miegsi-2021.netlify.app
+## Tarefa B <a name = "tb"></a>
+Na tarefa B, o sistema de conhecimento tem que ser resolvido via procura (Parte 1) e no final, otimizar a solução via Otimização, por Hill Climbing (Parte 2). Por outras palavras, temos um estafeta que utiliza uma scooter como meio de transporte que vai entregando encomendas a 1 (objetivo 1) ou a 2 (objetivo 2) clientes. Como output, temos o caminho por este tomado, o lucro gerado e o tempo que este demorou na locomoção.
 
-### Parte 2 - Otimização do lucro, tempo ou ambos <a name = "tb2"></a>
-Nesta parte foram desenvolvidas as funcionalidades de optimização usando o método de hillclimbing para o objetivo A (maximizar o lucro), B (minimizar o tempo do percurso) e C (maximizar 0.8*lucro+0.2*(20-tempo)).
+### Parte 1 (Transition Stage) - Tarefa B <a name = "tb1"></a>
+Na primeira parte da tarefa B, foi realizado um sistema baseado em conhecimento direcionado a um estafeta de entrega de refeições de um restaurante, de modo a aconselhar a entrega de refeições para um determinado cliente, mais concretamente, qual o caminho a adotar, o tempo que demora até ao seu destino e qual o lucro associado a essa entrega. Esta primeira parte foi desenvolvida através da linguagem prolog via uma abordagem de Procura (Transição de Estados). Como método de pesquisa, o utilizador pode escolher o depth-first, iterative-deepening e breath-first.
 
+### Parte 2 (Otimização) - Tarefa B <a name = "tb2"></a>
+Nesta parte foram desenvolvidas as funcionalidades de optimização usando o método de hillclimbing para o objetivo A (maximizar o lucro), B (minimizar o tempo do percurso) e C (maximizar 0.8*lucro+0.2*(20-tempo)). 
+Como método de otimização tinhamos que utilizar o hill-climbing.
 
-### Pré-requisitos <a name = "pre2"></a>
-* [serve](https://www.npmjs.com/package/serve)
-
-## Getting started <a name = "getting2"></a>
-
-### Quick-start <a name = "quick2"></a>
-
-#### Clone the repo
-  ```sh
-  git clone https://github.com/nonvegan/trabalho-sbc.git
-  ```
-
-#### Serve the static files
-  ```sh
-  serve webapp -l 80
-  ```
 ### Usage <a name = "usage2"></a>
+#### Página Inicial <a name = "quick6"></a>
+![PAGINA INICIAL - TAREFA B](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/PAGINA%20INICIAL%20-%20TAREFA%20B.PNG)
 
-* Select the running mode( 1 or 2 deliveries) 
-* Select the searching mode
-* Click search
+#### Trajetos <a name = "quick7"></a>
+![CAMINHOS](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/CAMINHOS.PNG)
 
-![Procura](https://i.imgur.com/S5OWn7U.png)
+#### Resultado <a name = "quick8"></a>
+![RESULTADO . TAREFA B](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/RESULTADO%20.%20TAREFA%20B.PNG)
   
 ## Ferramentas <a name = "built"></a>
 * [SWI-Prolog](https://www.swi-prolog.org)
-* [Python](https://www.python.org)
-* [Pyswip](https://pypi.org/project/pyswip)
-* [Twilio](https://www.twilio.com)
 * [R](https://www.r-project.org)
-* [JavaScript](https://www.javascript.com)
-* [Tau Prolog](http://tau-prolog.org)
+* [Java](https://www.java.com/pt-BR/)
 
 ## Licensa <a name = "license"></a>
 
@@ -151,17 +104,14 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contactos <a name = "contact"></a>
 
-* [Pedro Magalhães](mailto:pedromagalhaes_2000@hotmail.com)
-* [Álvaro Ferreira](mailto:alvarobahrain@gmail.com)
-* [André Gomes](mailto:andrede@live.com.pt)
-* [Zé Carvalho](mailto:zemmcarvalho@gmail.com)
+* [Guilherme Soares](mailto:ssoares553@gmail.com)
+* [Rodrigo Jesus](mailto:rodrmigpe@gmail.com)
+* [Tiago Lopes](mailto:tiago18lopess@gmail.com)
 
-## Reconhecimentos <a name = "ack"></a>
-* [Paulo Cortez](http://www3.dsi.uminho.pt/pcortez/Home.html)
-* [André Pilastri](https://pilastri.github.io/andrepilastri.github.io/#about)
+## Agradecimentos <a name = "ack"></a>
+* Paulo Cortez
+* André Pilastri
 
 ## Referências <a name = "refer"></a>
 * Cortez, P. (2018). Exercícios Resolvidos em Prolog sobre Sistemas Baseados em Conhecimento: Regras de Produção, Extração de Conhecimento, Procura e Otimização. Teaching Report, University of Minho, Guimarães, Portugal.
-* Cortez, P. (2015). A tutorial on the rminer R package for data mining tasks. Teaching Report, University of Minho, Guimarães, Portugal.
 * Bratko, I. (2012). Programming in Prolog for Artificial intelligence. Pearson Education, 4thedition, Harlow, England.
-* Wielemaker, J., De Koninck, L., Fruehwirth, T., Triska, M., & Uneson, M. (2014). SWI Prolog Reference Manual 7.1.
