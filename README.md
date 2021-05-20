@@ -16,6 +16,7 @@
   - [Getting started (Tarefa A e B)](#getting1)
     - [Variáveis de Ambiente SWIPL](#quick1)
     - [Netbeans Library](#quick2)
+    - [Diretorias no Consult](#quick9)
    - [Usage](#usage1)
       - [Página Inicial](#quick3)
       - [Pergunta - Ocasiões](#quick4)
@@ -63,7 +64,7 @@ Terminada a parte 1, passou-se para a parte 2 da mesma tarefa com o mesmo objeti
 ### Netbeans Library <a name = "quick2"></a>
 ![NetbeansJPL](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/NetbeansJPL.gif)
 
-#### Diretoriaas no Consult
+#### Diretoriaas no Consult <a name = "quick9"></a>
 ```
 Nas classes "PaginaInicial", "Pergunta5" e "PerguntaRestricao3" alterar o caminho/diretoria da base de conhecimento
   ```
