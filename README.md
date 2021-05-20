@@ -63,6 +63,12 @@ Terminada a parte 1, passou-se para a parte 2 da mesma tarefa com o mesmo objeti
 ### Netbeans Library <a name = "quick2"></a>
 ![NetbeansJPL](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/NetbeansJPL.gif)
 
+#### Diretoriaas no Consult
+```
+Nas classes "PaginaInicial", "Pergunta5" e "PerguntaRestricao3" alterar o caminho/diretoria da base de conhecimento
+  ```
+![Consult](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/Consult.png)
+
 ### Usage  <a name = "usage1"></a>
 #### Página Inicial <a name = "quick3"></a>
 ![PAGINA INICIAL](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/PAGINA%20INICIAL.PNG)
