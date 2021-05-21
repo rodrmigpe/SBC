@@ -123,3 +123,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Referências <a name = "refer"></a>
 * Cortez, P. (2018). Exercícios Resolvidos em Prolog sobre Sistemas Baseados em Conhecimento: Regras de Produção, Extração de Conhecimento, Procura e Otimização. Teaching Report, University of Minho, Guimarães, Portugal.
 * Bratko, I. (2012). Programming in Prolog for Artificial intelligence. Pearson Education, 4thedition, Harlow, England.
+* Slide das aulas teóricas
+* [Stackoverflow](https://stackoverflow.com/)
+* [JPL](https://jpl7.org/)
