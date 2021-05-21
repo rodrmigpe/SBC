@@ -46,7 +46,7 @@ Na tarefa A, o conhecimento tem que ser adquirido tanto manualmente (Parte 1) co
 Na primeira parte da tarefa A, foi realizado um sistema baseado em conhecimento (com aquisição de conhecimento manual) para aconselhar um utilizador sobre a escolha e compra de uma refeição. Em aberto, estavam diversos parâmetros que podíamos manipular como os perfis dos clientes, os gostos e as suas necessidades, custos, e entre outros.
 
 ### Parte 2 (BC Automática) - Tarefa A <a name = "ta2"></a>
-Terminada a parte 1, passou-se para a parte 2 da mesma tarefa com o mesmo objetivo da primeira parte (uma plataforma para aconselhar um utilizador sobre a escolha e compra de uma refeição), mas agora o sistema de conhecimento deve ser adquirido automaticamente com o auxílio de algumas ferramentas de Data Mining/Machine Learning (como o [Weka](https://www.cs.waikato.ac.nz/ml/weka/) ou [R 4.0](https://cran.r-project.org/mirrors.html).
+Terminada a parte 1, passou-se para a parte 2 da mesma tarefa com o mesmo objetivo da primeira parte (uma plataforma para aconselhar um utilizador sobre a escolha e compra de uma refeição), mas agora o sistema de conhecimento deve ser adquirido automaticamente com o auxílio de algumas ferramentas de Data Mining/Machine Learning (como o [Weka](https://www.cs.waikato.ac.nz/ml/weka/) ou [R 4.0](https://cran.r-project.org/mirrors.html)).
 
 ### Pré-requisitos <a name = "pre1"></a>
 * [SWI-Prolog 8.2.4](https://www.swi-prolog.org/download/stable)
