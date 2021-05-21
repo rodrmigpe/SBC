@@ -66,7 +66,8 @@ Terminada a parte 1, passou-se para a parte 2 da mesma tarefa com o mesmo objeti
 
 #### Diretoriaas no Consult <a name = "quick9"></a>
 ```
-Nas classes "PaginaInicial", "Pergunta5" e "PerguntaRestricao3" alterar o caminho/diretoria da base de conhecimento
+Tarefa A --> Nas classes "PaginaInicial", "Pergunta5" e "PerguntaRestricao3" alterar o caminho da diretoria da base de conhecimento 
+Tarefa B --> Na classe "Caminho", alterar o caminho da diretoria da base de dados (isto para os vários métodos).
   ```
 ![Consult](https://github.com/rodrmigpe/SBC/blob/master/GIF_Images/Consult.png)
 
